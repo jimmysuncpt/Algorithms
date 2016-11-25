@@ -13,5 +13,4 @@ public class TestAccumulator {
 		}
 		StdOut.println(a);
 	}
-
 }
