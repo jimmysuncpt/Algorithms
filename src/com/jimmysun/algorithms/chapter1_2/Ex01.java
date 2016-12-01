@@ -4,10 +4,6 @@ import edu.princeton.cs.algs4.Point2D;
 
 public class Ex01 {
 	public static void main(String[] args) {
-		if (args.length < 1) {
-			System.out.println("Error");
-			return;
-		}
 		int N = Integer.parseInt(args[0]);
 		Point2D[] points = new Point2D[N];
 		for (int i = 0; i < N; i++) {
