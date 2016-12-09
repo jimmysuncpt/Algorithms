@@ -58,4 +58,10 @@ public class Transaction {
 		}
 		return true;
 	}
+
+	public static void main(String[] args) {
+		Transaction transaction1 = new Transaction("Jimmy", new Date(12, 9, 2016), 1000000);
+		Transaction transaction2 = new Transaction("Jimmy", new Date(12, 9, 2016), 1000000);
+		System.out.println(transaction1.equals(transaction2));
+	}
 }
