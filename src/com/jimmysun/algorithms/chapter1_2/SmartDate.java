@@ -1,7 +1,5 @@
 package com.jimmysun.algorithms.chapter1_2;
 
-import edu.princeton.cs.algs4.StdOut;
-
 public class SmartDate {
 	private final int month;
 	private final int day;
@@ -72,6 +70,34 @@ public class SmartDate {
 		return year;
 	}
 
+	/**
+	 * Exercise 1.2.12
+	 * 
+	 * @return day of the week
+	 */
+	public String dayOfTheWeek() {
+		// Zeller formula
+		int week = (day + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400) % 7;
+		switch (week) {
+		case 0:
+			return "Monday";
+		case 1:
+			return "Tuesday";
+		case 2:
+			return "Wednesday";
+		case 3:
+			return "Thursday";
+		case 4:
+			return "Friday";
+		case 5:
+			return "Saturday";
+		case 6:
+			return "Sunday";
+		default:
+			return null;
+		}
+	}
+
 	@Override
 	public String toString() {
 		return month() + "/" + day() + "/" + year();
@@ -107,7 +133,8 @@ public class SmartDate {
 		int y = Integer.parseInt(args[2]);
 		try {
 			SmartDate date = new SmartDate(m, d, y);
-			StdOut.println(date);
+			System.out.println(date);
+			System.out.println(date.dayOfTheWeek());
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
