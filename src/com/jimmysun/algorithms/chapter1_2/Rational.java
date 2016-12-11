@@ -5,10 +5,16 @@ import edu.princeton.cs.algs4.StdIn;
 public class Rational {
 	private int numerator;
 	private int denominator;
+	private static int MAX = 2147483647;
+	private static int MIN = -2147483647;
 
 	public Rational(int numerator, int denominator) throws ArithmeticException {
 		if (denominator == 0) {
 			throw new ArithmeticException("Divide by zero");
+		}
+		if (denominator < 0) {
+			numerator = -numerator;
+			denominator = -denominator;
 		}
 		int commonDivisor = euclid(numerator, denominator);
 		this.numerator = numerator / commonDivisor;
@@ -34,6 +40,8 @@ public class Rational {
 	}
 
 	public Rational plus(Rational b) {
+		assert isPlusOverflow(numerator * b.denominator, b.numerator * denominator) : "Plus overflow";
+		assert isTimesOverflow(denominator, b.denominator) : "Times overflow";
 		return new Rational(numerator * b.denominator + b.numerator * denominator, denominator * b.denominator);
 	}
 
@@ -42,6 +50,8 @@ public class Rational {
 	}
 
 	public Rational times(Rational b) {
+		assert isTimesOverflow(numerator, b.numerator) : "Times overflow";
+		assert isTimesOverflow(denominator, b.denominator) : "Times overflow";
 		return new Rational(numerator * b.numerator, denominator * b.denominator);
 	}
 
@@ -74,10 +84,26 @@ public class Rational {
 	public String toString() {
 		if (Math.abs(numerator) % Math.abs(denominator) == 0) {
 			return String.valueOf(numerator / denominator);
-		} else if (numerator * denominator > 0) {
-			return Math.abs(numerator) + "/" + Math.abs(denominator);
 		} else {
-			return "-" + Math.abs(numerator) + "/" + Math.abs(denominator);
+			return numerator + "/" + denominator;
+		}
+	}
+
+	private boolean isPlusOverflow(int a, int b) {
+		return a >= 0 ? a + b < MAX : a + b > MIN;
+	}
+
+	private boolean isTimesOverflow(int a, int b) {
+		if (a < 0) {
+			a = -a;
+		}
+		if (b < 0) {
+			b = -b;
+		}
+		if (a == 0 || b == 0) {
+			return false;
+		} else {
+			return a * b < MAX;
 		}
 	}
 
