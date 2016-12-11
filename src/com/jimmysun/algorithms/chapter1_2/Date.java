@@ -13,6 +13,17 @@ public class Date {
 		year = y;
 	}
 
+	/**
+	 * Exercise 1.2.19
+	 * @param date
+	 */
+	public Date(String date) {
+		String[] fields = date.split("/");
+		month = Integer.parseInt(fields[0]);
+		day = Integer.parseInt(fields[1]);
+		year = Integer.parseInt(fields[2]);
+	}
+
 	public int month() {
 		return month;
 	}
