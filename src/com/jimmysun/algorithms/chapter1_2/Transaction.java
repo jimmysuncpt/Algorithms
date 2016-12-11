@@ -11,6 +11,18 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	/**
+	 * Exercise 1.2.19
+	 * 
+	 * @param transaction
+	 */
+	public Transaction(String transaction) {
+		String[] fields = transaction.split(" ");
+		who = fields[0];
+		when = new Date(fields[1]);
+		amount = Double.parseDouble(fields[2]);
+	}
+
 	public String getWho() {
 		return who;
 	}
@@ -35,6 +47,9 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	/**
+	 * Exercise 1.2.14
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -61,7 +76,7 @@ public class Transaction {
 
 	public static void main(String[] args) {
 		Transaction transaction1 = new Transaction("Jimmy", new Date(12, 9, 2016), 1000000);
-		Transaction transaction2 = new Transaction("Jimmy", new Date(12, 9, 2016), 1000000);
+		Transaction transaction2 = new Transaction("Jimmy 12/9/2016 1000000");
 		System.out.println(transaction1.equals(transaction2));
 	}
 }
