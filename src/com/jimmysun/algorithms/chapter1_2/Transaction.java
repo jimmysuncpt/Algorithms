@@ -75,8 +75,8 @@ public class Transaction {
 	}
 
 	public static void main(String[] args) {
-		Transaction transaction1 = new Transaction("Jimmy", new Date(12, 9, 2016), 1000000);
-		Transaction transaction2 = new Transaction("Jimmy 12/9/2016 1000000");
+		Transaction transaction1 = new Transaction("Turing", new Date(5, 22, 1939), 11.99);
+		Transaction transaction2 = new Transaction("Turing 5/22/1939 11.99");
 		System.out.println(transaction1.equals(transaction2));
 	}
 }
