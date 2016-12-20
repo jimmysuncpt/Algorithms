@@ -1,6 +1,7 @@
 package com.jimmysun.algorithms.chapter1_3;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -60,6 +61,18 @@ public class Stack<Item> implements Iterable<Item> {
 		@Override
 		public void remove() {
 		}
+	}
+
+	/**
+	 * Exercise 1.3.7
+	 * 
+	 * @return
+	 */
+	public Item peek() {
+		if (isEmpty()) {
+			throw new NoSuchElementException("Stack underflow");
+		}
+		return first.item;
 	}
 
 	public static void main(String[] args) {
