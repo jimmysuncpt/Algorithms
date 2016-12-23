@@ -71,6 +71,20 @@ public class Queue<Item> implements Iterable<Item> {
 		}
 	}
 
+	/**
+	 * Exercise 1.3.47
+	 * 
+	 * @param queue
+	 */
+	public void catenation(Queue<Item> queue) {
+		Queue<Item> temp = new Queue<>();
+		Iterator<Item> iterator = queue.iterator();
+		while (iterator.hasNext()) {
+			temp.enqueue(iterator.next());
+		}
+		last.next = temp.first;
+	}
+
 	public static void main(String[] args) {
 		Queue<String> q = new Queue<String>();
 		while (!StdIn.isEmpty()) {

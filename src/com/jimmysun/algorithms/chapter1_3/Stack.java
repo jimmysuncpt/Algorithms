@@ -13,6 +13,22 @@ public class Stack<Item> implements Iterable<Item> {
 	private class Node {
 		Item item;
 		Node next;
+
+		Node() {
+		};
+
+		/**
+		 * Exercise 1.3.42
+		 * 
+		 * @param x
+		 */
+		Node(Node x) {
+			item = x.item;
+			if (x.next != null) {
+				next = new Node(x.next);
+			}
+			N++;
+		}
 	}
 
 	public Stack() {
@@ -26,8 +42,7 @@ public class Stack<Item> implements Iterable<Item> {
 	 * @param s
 	 */
 	public Stack(Stack<Item> s) {
-		first = s.first;
-		N = s.N;
+		first = new Node(s.first);
 	}
 
 	public boolean isEmpty() {
@@ -88,6 +103,23 @@ public class Stack<Item> implements Iterable<Item> {
 			throw new NoSuchElementException("Stack underflow");
 		}
 		return first.item;
+	}
+
+	/**
+	 * Exercise 1.3.47
+	 * 
+	 * @param stack
+	 */
+	public void catenation(Stack<Item> stack) {
+		if (stack.first != null) {
+			Stack<Item> temp = new Stack<>(stack);
+			Node last = temp.first;
+			while (last.next != null) {
+				last = last.next;
+			}
+			last.next = first;
+			first = temp.first;
+		}
 	}
 
 	public static void main(String[] args) {
