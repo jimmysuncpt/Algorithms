@@ -15,6 +15,21 @@ public class Stack<Item> implements Iterable<Item> {
 		Node next;
 	}
 
+	public Stack() {
+		first = null;
+		N = 0;
+	}
+
+	/**
+	 * Exercise 1.3.42
+	 * 
+	 * @param s
+	 */
+	public Stack(Stack<Item> s) {
+		first = s.first;
+		N = s.N;
+	}
+
 	public boolean isEmpty() {
 		return first == null;
 	}
