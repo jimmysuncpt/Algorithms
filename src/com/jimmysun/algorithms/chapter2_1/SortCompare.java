@@ -15,7 +15,7 @@ public class SortCompare {
 			Selection.sort(a);
 		}
 		if (alg.equals("Shell")) {
-			// Shell.sort(a);
+			Shell.sort(a);
 		}
 		if (alg.equals("Merge")) {
 			// Merge.sort(a);
