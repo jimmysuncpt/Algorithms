@@ -1,5 +1,7 @@
 package com.jimmysun.algorithms.chapter2_1;
 
+import java.util.Arrays;
+
 public class Transaction implements Comparable<Transaction> {
 	private String who; // customer
 	private Date when; // date
@@ -92,7 +94,7 @@ public class Transaction implements Comparable<Transaction> {
 		Transaction[] transactions = new Transaction[] { new Transaction("Big", new Date(5, 22, 1939), 123.45),
 				new Transaction("Medium", new Date(5, 22, 1939), 50.5),
 				new Transaction("Small", new Date(5, 22, 1939), 11.99) };
-		Shell.sort(transactions);
+		Arrays.sort(transactions);
 		for (Transaction transaction : transactions) {
 			System.out.println("Who: " + transaction.who + "\tAmount: " + transaction.amount);
 		}
