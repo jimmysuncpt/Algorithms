@@ -1,7 +1,5 @@
 package com.jimmysun.algorithms.chapter2_1;
 
-import com.jimmysun.algorithms.chapter1_2.Date;
-
 public class Transaction implements Comparable<Transaction> {
 	private String who; // customer
 	private Date when; // date
