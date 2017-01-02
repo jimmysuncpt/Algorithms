@@ -1,5 +1,7 @@
 package com.jimmysun.algorithms.chapter2_1;
 
+import com.jimmysun.algorithms.chapter1_2.Date;
+
 public class Transaction implements Comparable<Transaction> {
 	private String who; // customer
 	private Date when; // date
@@ -9,6 +11,18 @@ public class Transaction implements Comparable<Transaction> {
 		this.who = who;
 		this.when = when;
 		this.amount = amount;
+	}
+
+	/**
+	 * Exercise 1.2.19
+	 * 
+	 * @param transaction
+	 */
+	public Transaction(String transaction) {
+		String[] fields = transaction.split("\\s+");
+		who = fields[0];
+		when = new Date(fields[1]);
+		amount = Double.parseDouble(fields[2]);
 	}
 
 	public String getWho() {
