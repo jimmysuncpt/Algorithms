@@ -1,6 +1,7 @@
 package com.jimmysun.algorithms.chapter2_1;
 
 import com.jimmysun.algorithms.chapter1_4.Stopwatch;
+import com.jimmysun.algorithms.chapter2_2.Merge;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -18,7 +19,7 @@ public class SortCompare {
 			Shell.sort(a);
 		}
 		if (alg.equals("Merge")) {
-			// Merge.sort(a);
+			Merge.sort(a);
 		}
 		if (alg.equals("Quick")) {
 			// Quick.sort(a);
