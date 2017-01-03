@@ -26,6 +26,10 @@ public class SortCompare {
 		if (alg.equals("Heap")) {
 			// Heap.sort(a);
 		}
+		// Exercise 2.1.24
+		if (alg.equals("Ex24")) {
+			Ex24.sort(a);
+		}
 		return timer.elapsedTime();
 	}
 
