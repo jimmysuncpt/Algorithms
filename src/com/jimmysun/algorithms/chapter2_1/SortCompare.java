@@ -30,6 +30,10 @@ public class SortCompare {
 		if (alg.equals("Ex24")) {
 			Ex24.sort(a);
 		}
+		// Exercise 2.1.25
+		if (alg.equals("Ex25")) {
+			Ex25.sort(a);
+		}
 		return timer.elapsedTime();
 	}
 
