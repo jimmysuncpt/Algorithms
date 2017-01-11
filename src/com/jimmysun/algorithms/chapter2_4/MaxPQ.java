@@ -3,6 +3,7 @@ package com.jimmysun.algorithms.chapter2_4;
 public class MaxPQ<Key extends Comparable<Key>> {
 	private Key[] pq;
 	private int N = 0;
+	private Key min;
 
 	public MaxPQ(int maxN) {
 		pq = (Key[]) new Comparable[maxN + 1];
@@ -18,6 +19,9 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
 	public void insert(Key v) {
 		pq[++N] = v;
+		if (N == 1 || min.compareTo(v) > 0) {
+			min = v;
+		}
 		swim(N);
 	}
 
@@ -26,6 +30,9 @@ public class MaxPQ<Key extends Comparable<Key>> {
 		exch(1, N--);
 		pq[N + 1] = null;
 		sink(1);
+		if (isEmpty()) {
+			min = null;
+		}
 		return max;
 	}
 
@@ -58,5 +65,14 @@ public class MaxPQ<Key extends Comparable<Key>> {
 			exch(k, j);
 			k = j;
 		}
+	}
+
+	/**
+	 * Exercise 2.4.27
+	 * 
+	 * @return
+	 */
+	public Key min() {
+		return min;
 	}
 }
