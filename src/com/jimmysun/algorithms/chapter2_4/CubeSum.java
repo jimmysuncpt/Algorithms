@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdIn;
 
 public class CubeSum implements Comparable<CubeSum> {
-	int i, j, sum;
+	private int i, j, sum;
 
 	public CubeSum(int i, int j) {
 		this.i = i;
