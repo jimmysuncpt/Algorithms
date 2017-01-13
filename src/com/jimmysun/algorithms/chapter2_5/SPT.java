@@ -14,8 +14,7 @@ public class SPT {
 		}
 		Arrays.sort(jobs);
 		for (int i = 0; i < n; i++) {
-			Job job = jobs[i];
-			System.out.println(job.getName() + ": " + job.getTime());
+			System.out.println(jobs[i]);
 		}
 	}
 }
