@@ -27,4 +27,9 @@ public class Job implements Comparable<Job> {
 			return 0;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return name + " : " + time;
+	}
 }
