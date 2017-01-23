@@ -133,4 +133,17 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	public boolean contains(Key key) {
 		return get(key) != null;
 	}
+
+	// Add for Exercise 3.1.29
+	public Iterable<Key> keys() {
+		return keys(min(), max());
+	}
+
+	public void deleteMin() {
+		delete(min());
+	}
+
+	public void deleteMax() {
+		delete(max());
+	}
 }
