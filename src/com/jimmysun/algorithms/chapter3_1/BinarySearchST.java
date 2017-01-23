@@ -61,6 +61,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		keys[i] = key;
 		vals[i] = val;
 		N++;
+		assert check();
 	}
 
 	/**
@@ -82,6 +83,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 			keys[N] = null;
 			vals[N] = null;
 		}
+		assert check();
 	}
 
 	public Key min() {
@@ -145,5 +147,33 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
 	public void deleteMax() {
 		delete(max());
+	}
+
+	// Exercise 3.1.30
+	private boolean check() {
+		return isSorted() && rankCheck();
+	}
+
+	private boolean isSorted() {
+		for (int i = 1; i < size(); i++) {
+			if (keys[i].compareTo(keys[i - 1]) < 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean rankCheck() {
+		for (int i = 0; i < size(); i++) {
+			if (i != rank(select(i))) {
+				return false;
+			}
+		}
+		for (int i = 0; i < size(); i++) {
+			if (keys[i].compareTo(select(rank(keys[i]))) != 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
