@@ -63,6 +63,27 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		N++;
 	}
 
+	/**
+	 * Exercise 3.1.16
+	 * 
+	 * @param key
+	 */
+	public void delete(Key key) {
+		if (isEmpty()) {
+			return;
+		}
+		int i = rank(key);
+		if (i < N && keys[i].compareTo(key) == 0) {
+			for (int j = i; j < N - 1; j++) {
+				keys[j] = keys[j + 1];
+				vals[j] = vals[j + 1];
+			}
+			N--;
+			keys[N] = null;
+			vals[N] = null;
+		}
+	}
+
 	public Key min() {
 		return keys[0];
 	}
