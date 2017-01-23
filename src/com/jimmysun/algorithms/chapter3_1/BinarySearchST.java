@@ -101,6 +101,24 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		return keys[i];
 	}
 
+	/**
+	 * Exercise 3.1.17
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public Key floor(Key key) {
+		int i = rank(key);
+		if (i < N) {
+			if (keys[i].compareTo(key) == 0) {
+				return key;
+			} else if (i > 0) {
+				return keys[i - 1];
+			}
+		}
+		return null;
+	}
+
 	public Iterable<Key> keys(Key lo, Key hi) {
 		Queue<Key> q = new Queue<Key>();
 		for (int i = rank(lo); i < rank(hi); i++) {
