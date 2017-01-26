@@ -261,4 +261,16 @@ public class BST<Key extends Comparable<Key>, Value> {
 			keys(x.right, queue, lo, hi);
 		}
 	}
+
+	// Exercise 3.2.6
+	public int height() {
+		return height(root);
+	}
+
+	private int height(Node x) {
+		if (x == null) {
+			return -1;
+		}
+		return 1 + Math.max(height(x.left), height(x.right));
+	}
 }
