@@ -76,7 +76,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 		if (x.right == null) {
 			return x;
 		}
-		return min(x.right);
+		return max(x.right);
 	}
 
 	public Key min() {
