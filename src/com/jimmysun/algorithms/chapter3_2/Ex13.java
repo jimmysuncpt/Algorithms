@@ -64,7 +64,7 @@ public class Ex13<Key extends Comparable<Key>, Value> {
 			st.put(key, i);
 		}
 		for (String key : args) {
-			System.out.println(key + " : " + st.get(key));
+			System.out.println(key + " " + st.get(key));
 		}
 	}
 }
