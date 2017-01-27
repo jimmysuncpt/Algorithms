@@ -291,4 +291,23 @@ public class BST<Key extends Comparable<Key>, Value> {
 		}
 		return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
 	}
+
+	/**
+	 * Exercise 3.2.33
+	 * 
+	 * @return
+	 */
+	public boolean isRankConsistent() {
+		for (int i = 0; i < size(); i++) {
+			if (i != rank(select(i))) {
+				return false;
+			}
+		}
+		for (Key key : keys()) {
+			if (!key.equals(select(rank(key)))) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
