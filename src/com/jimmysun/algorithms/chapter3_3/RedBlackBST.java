@@ -259,4 +259,64 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 			keys(x.right, queue, lo, hi);
 		}
 	}
+
+	// Exercise 3.2.32
+	private boolean isBST() {
+		return isBST(root, null, null);
+	}
+
+	private boolean isBST(Node x, Key min, Key max) {
+		if (x == null) {
+			return true;
+		}
+		if (min != null && x.key.compareTo(min) <= 0) {
+			return false;
+		}
+		if (max != null && x.key.compareTo(max) >= 0) {
+			return false;
+		}
+		return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
+	}
+
+	// Exercise 3.3.33
+	private boolean is23() {
+		return is23(root);
+	}
+
+	private boolean is23(Node x) {
+		if (x == null) {
+			return true;
+		}
+		if (isRed(x.right)) {
+			return false;
+		}
+		if (x != root && isRed(x) && isRed(x.left)) {
+			return false;
+		}
+		return is23(x.left) && is23(x.right);
+	}
+
+	private boolean isBalanced() {
+		int black = 0;
+		for (Node x = root; x != null; x = x.left) {
+			if (!isRed(x)) {
+				black++;
+			}
+		}
+		return isBalanced(root, black);
+	}
+
+	private boolean isBalanced(Node x, int black) {
+		if (x == null) {
+			return black == 0;
+		}
+		if (!isRed(x)) {
+			black--;
+		}
+		return isBalanced(x.left, black) && isBalanced(x.right, black);
+	}
+
+	private boolean isRedBlackBST() {
+		return is23() && isBalanced() && isBST();
+	}
 }
