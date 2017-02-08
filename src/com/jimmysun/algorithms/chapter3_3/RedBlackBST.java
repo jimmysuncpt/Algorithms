@@ -319,4 +319,50 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 	private boolean isRedBlackBST() {
 		return is23() && isBalanced() && isBST();
 	}
+
+	// Exercise 3.3.39
+	private Node moveRedLeft(Node h) {
+		flipColors(h);
+		if (isRed(h.right.left)) {
+			h.right = rotateRight(h.right);
+			h = rotateLeft(h);
+		}
+		return h;
+	}
+
+	public void deleteMin() {
+		if (!isRed(root.left) && !isRed(root.right)) {
+			root.color = RED;
+		}
+		root = deleteMin(root);
+		if (root != null) {
+			root.color = BLACK;
+		}
+	}
+
+	private Node deleteMin(Node h) {
+		if (h.left == null) {
+			return null;
+		}
+		if (!isRed(h.left) && !isRed(h.left.left)) {
+			h = moveRedLeft(h);
+		}
+		h.left = deleteMin(h.left);
+		return balance(h);
+	}
+
+	private Node balance(Node h) {
+		if (isRed(h.right)) {
+			h = rotateLeft(h);
+		}
+		if (isRed(h.left) && isRed(h.left.left)) {
+			h = rotateRight(h);
+		}
+		if (isRed(h.left) && isRed(h.right)) {
+			flipColors(h);
+		}
+
+		h.N = size(h.left) + size(h.right) + 1;
+		return h;
+	}
 }
