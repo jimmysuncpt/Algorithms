@@ -32,4 +32,32 @@ public class SparseVector {
 		}
 		return sum;
 	}
+
+	// Exercise 3.5.23
+	public double dot(SparseVector that) {
+		double sum = 0.0;
+		if (this.st.size() <= that.st.size()) {
+			for (int i : this.st.keys()) {
+				if (that.st.contains(i)) {
+					sum += this.get(i) * that.get(i);
+				}
+			}
+		} else {
+			for (int i : that.st.keys()) {
+				if (this.st.contains(i)) {
+					sum += this.get(i) * that.get(i);
+				}
+			}
+		}
+		return sum;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (int i : st.keys()) {
+			s.append("(" + i + ", " + st.get(i) + ") ");
+		}
+		return s.toString();
+	}
 }
