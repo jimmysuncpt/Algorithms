@@ -1,6 +1,7 @@
 package com.jimmysun.algorithms.chapter4_1;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
+import com.jimmysun.algorithms.chapter1_3.Stack;
 
 import edu.princeton.cs.algs4.In;
 
@@ -25,6 +26,25 @@ public class Graph {
 			int v = in.readInt();
 			int w = in.readInt();
 			addEdge(v, w);
+		}
+	}
+
+	/**
+	 * Exercise 4.1.3
+	 * 
+	 * @param G
+	 */
+	public Graph(Graph G) {
+		this(G.V());
+		E = G.E();
+		for (int v = 0; v < G.V(); v++) {
+			Stack<Integer> reverse = new Stack<>();
+			for (int w : G.adj[v]) {
+				reverse.push(w);
+			}
+			for (int w : reverse) {
+				adj[v].add(w);
+			}
 		}
 	}
 
