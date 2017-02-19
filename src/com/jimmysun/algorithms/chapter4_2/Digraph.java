@@ -1,6 +1,7 @@
 package com.jimmysun.algorithms.chapter4_2;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
+import com.jimmysun.algorithms.chapter1_3.Stack;
 
 import edu.princeton.cs.algs4.In;
 
@@ -25,6 +26,25 @@ public class Digraph {
 			int v = in.readInt();
 			int w = in.readInt();
 			addEdge(v, w);
+		}
+	}
+
+	/**
+	 * Exercise 4.2.3
+	 * 
+	 * @param G
+	 */
+	public Digraph(Digraph G) {
+		this(G.V());
+		E = G.E();
+		for (int v = 0; v < G.V(); v++) {
+			Stack<Integer> reverse = new Stack<>();
+			for (int i : G.adj(v)) {
+				reverse.push(i);
+			}
+			for (int i : reverse) {
+				adj[v].add(i);
+			}
 		}
 	}
 
