@@ -75,6 +75,15 @@ public class Digraph {
 		return R;
 	}
 
+	// Add for Exercise 4.2.20
+	public int outdegree(int v) {
+		return adj[v].size();
+	}
+
+	public int indegree(int v) {
+		return reverse().adj[v].size();
+	}
+
 	@Override
 	public String toString() {
 		String s = V + " vertices, " + E + " edges\n";
