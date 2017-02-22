@@ -2,6 +2,8 @@ package com.jimmysun.algorithms.chapter4_3;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
 
+import edu.princeton.cs.algs4.In;
+
 public class EdgeWeightedGraph {
 	private final int V;
 	private int E;
@@ -13,6 +15,23 @@ public class EdgeWeightedGraph {
 		adj = (Bag<Edge>[]) new Bag[V];
 		for (int v = 0; v < V; v++) {
 			adj[v] = new Bag<Edge>();
+		}
+	}
+
+	/**
+	 * Exercise 4.3.9
+	 * 
+	 * @param in
+	 */
+	public EdgeWeightedGraph(In in) {
+		this(in.readInt());
+		int E = in.readInt();
+		for (int i = 0; i < E; i++) {
+			int v = in.readInt();
+			int w = in.readInt();
+			double weight = in.readDouble();
+			Edge edge = new Edge(v, w, weight);
+			addEdge(edge);
 		}
 	}
 
