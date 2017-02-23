@@ -1,7 +1,6 @@
 package com.jimmysun.algorithms.chapter4_3;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
-import com.jimmysun.algorithms.chapter1_3.Queue;
 
 import edu.princeton.cs.algs4.IndexMinPQ;
 
