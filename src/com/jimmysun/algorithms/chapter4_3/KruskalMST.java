@@ -29,6 +29,8 @@ public class KruskalMST {
 			mst.enqueue(e);
 			weight += e.weight();
 		}
+
+		assert check(G);
 	}
 
 	public Iterable<Edge> edges() {
@@ -42,6 +44,66 @@ public class KruskalMST {
 	 */
 	public double weight() {
 		return weight;
+	}
+
+	/**
+	 * Exercise 4.3.33
+	 * 
+	 * @param G
+	 * @return
+	 */
+	private boolean check(EdgeWeightedGraph G) {
+		// check total weight
+		double total = 0;
+		for (Edge edge : mst) {
+			total += edge.weight();
+		}
+		if (Math.abs(total - weight) > 1E-12) {
+			System.err.println("total weight not equal");
+			return false;
+		}
+
+		// check that it is acyclic
+		UF uf = new UF(G.V());
+		for (Edge edge : mst) {
+			int v = edge.either(), w = edge.other(v);
+			if (uf.connected(v, w)) {
+				System.err.println("it is not acyclic");
+				return false;
+			} else {
+				uf.union(v, w);
+			}
+		}
+
+		// check that it is a spanning tree
+		for (Edge edge : G.edges()) {
+			int v = edge.either(), w = edge.other(v);
+			if (!uf.connected(v, w)) {
+				System.err.println("it is not a spanning tree");
+				return false;
+			}
+		}
+
+		// check that it is a minimal spanning tree (cut optimality
+		// conditions)
+		for (Edge edge : mst) {
+			uf = new UF(G.V());
+			for (Edge e : mst) {
+				int v = e.either(), w = e.other(v);
+				if (e != edge) {
+					uf.union(v, w);
+				}
+			}
+			for (Edge e : G.edges()) {
+				int v = e.either(), w = e.other(v);
+				if (!uf.connected(v, w) && e.weight() < edge.weight()) {
+					System.err.println("it is not a minimal spanning tree");
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	public static void main(String[] args) {
