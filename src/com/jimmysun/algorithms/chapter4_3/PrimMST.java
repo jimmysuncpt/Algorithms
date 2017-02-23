@@ -1,5 +1,8 @@
 package com.jimmysun.algorithms.chapter4_3;
 
+import com.jimmysun.algorithms.chapter1_3.Bag;
+import com.jimmysun.algorithms.chapter1_3.Queue;
+
 import edu.princeton.cs.algs4.IndexMinPQ;
 
 public class PrimMST {
@@ -43,5 +46,18 @@ public class PrimMST {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Exercise 4.3.21
+	 * 
+	 * @return
+	 */
+	public Iterable<Edge> edges() {
+		Bag<Edge> mst = new Bag<>();
+		for (Edge edge : edgeTo) {
+			mst.add(edge);
+		}
+		return mst;
 	}
 }
