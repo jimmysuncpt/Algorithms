@@ -54,8 +54,8 @@ public class PrimMST {
 	 */
 	public Iterable<Edge> edges() {
 		Bag<Edge> mst = new Bag<>();
-		for (Edge edge : edgeTo) {
-			mst.add(edge);
+		for (int i = 1; i < edgeTo.length; i++) {
+			mst.add(edgeTo[i]);
 		}
 		return mst;
 	}
