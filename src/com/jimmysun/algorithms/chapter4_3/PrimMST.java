@@ -2,7 +2,9 @@ package com.jimmysun.algorithms.chapter4_3;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
 
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.IndexMinPQ;
+import edu.princeton.cs.algs4.StdOut;
 
 public class PrimMST {
 	private Edge[] edgeTo;
@@ -58,5 +60,29 @@ public class PrimMST {
 			mst.add(edgeTo[i]);
 		}
 		return mst;
+	}
+
+	/**
+	 * Exercise 4.3.31
+	 * 
+	 * @return
+	 */
+	public double weight() {
+		double weight = 0;
+		for (int i = 0; i < distTo.length; i++) {
+			weight += distTo[i];
+		}
+		return weight;
+	}
+
+	public static void main(String[] args) {
+		In in = new In(args[0]);
+		EdgeWeightedGraph G = new EdgeWeightedGraph(in);
+
+		PrimMST mst = new PrimMST(G);
+		for (Edge e : mst.edges()) {
+			StdOut.println(e);
+		}
+		StdOut.println(mst.weight());
 	}
 }
