@@ -4,7 +4,6 @@ import com.jimmysun.algorithms.chapter1_3.Queue;
 import com.jimmysun.algorithms.chapter1_5.UF;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
 public class BoruvkaMST {
