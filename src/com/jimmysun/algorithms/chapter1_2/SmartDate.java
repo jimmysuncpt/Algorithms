@@ -77,6 +77,12 @@ public class SmartDate {
 	 */
 	public String dayOfTheWeek() {
 		// Zeller formula
+		int month = this.month;
+		int year = this.year;
+		if (month <= 2) {
+			month += 12;
+			year--;
+		}
 		int week = (day + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400) % 7;
 		switch (week) {
 		case 0:
