@@ -52,9 +52,18 @@ public class EdgeWeightedDigraph {
 	}
 
 	/**
-	 * Exercise 4.3.17
+	 * Exercise 4.4.2
 	 */
-	// @Override
-	// public String toString() {
-	// }
+	@Override
+	public String toString() {
+		String s = V + " vertices, " + E + " edges\n";
+		for (int v = 0; v < V; v++) {
+			s += v + ": ";
+			for (DirectedEdge e : this.adj(v)) {
+				s += e + " ";
+			}
+			s += "\n";
+		}
+		return s;
+	}
 }
