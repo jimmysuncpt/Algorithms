@@ -2,6 +2,8 @@ package com.jimmysun.algorithms.chapter4_4;
 
 import com.jimmysun.algorithms.chapter1_3.Bag;
 
+import edu.princeton.cs.algs4.In;
+
 public class EdgeWeightedDigraph {
 	private final int V;
 	private int E;
@@ -16,13 +18,19 @@ public class EdgeWeightedDigraph {
 		}
 	}
 
-	/**
-	 * Exercise 4.4.2
-	 * 
-	 * @param in
-	 */
-	// public EdgeWeightedDigraph(In in) {
-	// }
+	public EdgeWeightedDigraph(In in) {
+		this(in.readInt());
+		int E = in.readInt();
+		if (E < 0) {
+			throw new IllegalArgumentException("Number of edges must be nonnegative");
+		}
+		for (int i = 0; i < E; i++) {
+			int v = in.readInt();
+			int w = in.readInt();
+			double weight = in.readDouble();
+			addEdge(new DirectedEdge(v, w, weight));
+		}
+	}
 
 	public int V() {
 		return V;
