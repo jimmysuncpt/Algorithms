@@ -2,7 +2,9 @@ package com.jimmysun.algorithms.chapter4_4;
 
 import com.jimmysun.algorithms.chapter1_3.Stack;
 
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.IndexMinPQ;
+import edu.princeton.cs.algs4.StdOut;
 
 public class DijkstraSP {
 	private DirectedEdge[] edgeTo;
@@ -57,5 +59,22 @@ public class DijkstraSP {
 			path.push(e);
 		}
 		return path;
+	}
+
+	public static void main(String[] args) {
+		EdgeWeightedDigraph G = new EdgeWeightedDigraph(new In(args[0]));
+		int s = Integer.parseInt(args[1]);
+		DijkstraSP sp = new DijkstraSP(G, s);
+
+		for (int t = 0; t < G.V(); t++) {
+			StdOut.print(s + " to " + t);
+			StdOut.printf(" (%4.2f): ", sp.distTo(t));
+			if (sp.hasPathTo(t)) {
+				for (DirectedEdge e : sp.pathTo(t)) {
+					StdOut.print(e + "   ");
+				}
+			}
+			StdOut.println();
+		}
 	}
 }
