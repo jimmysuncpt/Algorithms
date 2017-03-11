@@ -2,6 +2,9 @@ package com.jimmysun.algorithms.chapter4_4;
 
 import com.jimmysun.algorithms.chapter1_3.Stack;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
+
 public class AcyclicSP {
 	private DirectedEdge[] edgeTo;
 	private double[] distTo;
@@ -48,5 +51,22 @@ public class AcyclicSP {
 			path.push(e);
 		}
 		return path;
+	}
+
+	public static void main(String[] args) {
+		EdgeWeightedDigraph G = new EdgeWeightedDigraph(new In(args[0]));
+		int s = Integer.parseInt(args[1]);
+		AcyclicSP sp = new AcyclicSP(G, s);
+
+		for (int t = 0; t < G.V(); t++) {
+			StdOut.print(s + " to " + t);
+			StdOut.printf(" (%4.2f): ", sp.distTo(t));
+			if (sp.hasPathTo(t)) {
+				for (DirectedEdge e : sp.pathTo(t)) {
+					StdOut.print(e + "   ");
+				}
+			}
+			StdOut.println();
+		}
 	}
 }
