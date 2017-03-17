@@ -1,5 +1,7 @@
 package com.jimmysun.algorithms.chapter5_2;
 
+import com.jimmysun.algorithms.chapter1_3.Queue;
+
 public class TST<Value> {
 	private Node root;
 
@@ -53,5 +55,81 @@ public class TST<Value> {
 			x.val = val;
 		}
 		return x;
+	}
+
+	// Exercise 5.2.9
+	public String longestPrefixOf(String s) {
+		int length = search(root, s, 0, 0);
+		return s.substring(0, length);
+	}
+
+	private int search(Node x, String s, int d, int length) {
+		if (x == null) {
+			return length;
+		}
+		if (x.val != null) {
+			length = d;
+		}
+		if (d == s.length()) {
+			return length;
+		}
+		char c = s.charAt(d);
+		if (c < x.c) {
+			return search(x.left, s, d, length);
+		} else if (c > x.c) {
+			return search(x.right, s, d, length);
+		} else {
+			return search(x.mid, s, d + 1, length);
+		}
+	}
+
+	public Iterable<String> keys() {
+		return keysWithPrefix("");
+	}
+
+	private Iterable<String> keysWithPrefix(String pre) {
+		Queue<String> q = new Queue<>();
+		collect(get(root, pre, 0).mid, pre, q);
+		return q;
+	}
+
+	private void collect(Node x, String pre, Queue<String> q) {
+		if (x == null) {
+			return;
+		}
+		if (x.val != null) {
+			q.enqueue(pre);
+		}
+		collect(x.left, pre, q);
+		collect(x.right, pre, q);
+		collect(x.mid, pre + x.c, q);
+	}
+
+	public Iterable<String> keysThatMatch(String pat) {
+		Queue<String> q = new Queue<>();
+		collect(root, "", pat, q);
+		return q;
+	}
+
+	private void collect(Node x, String pre, String pat, Queue<String> q) {
+		if (x == null) {
+			return;
+		}
+		int d = pre.length();
+		char c = pat.charAt(d);
+		if (c == '.' || c < x.c) {
+			collect(x.left, pre, pat, q);
+		}
+		if (c == '.' || c > x.c) {
+			collect(x.right, pre, pat, q);
+		}
+		if (c == '.' || c == x.c) {
+			if (d + 1 == pat.length() && x.val != null) {
+				q.enqueue(pre + c);
+			}
+			if (d + 1 < pat.length()) {
+				collect(x.mid, pre + c, pat, q);
+			}
+		}
 	}
 }
