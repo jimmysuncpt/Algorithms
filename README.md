@@ -1,7 +1,11 @@
-# Algorithms (Fourth Edition)
+算法（第4版）
+==========
 
->This repository includes the codes and my solutions to exercises from the book "Algorithms" (4th edition) by Robert Sedgewick and Kevin Wayne.
+>这个项目包含《算法（第4版）》书中的源代码和本人对部分课后练习的解答。分享给大家来一起学习，希望大家可以帮助完善这个项目，非常感谢！
 
-Recently, I'm learning the book "Algorithms". I will share my codes in this repository, including the codes in the book and my solutions to exercises. I hope you can help me to perfect the codes. Thanks a lot!
+目录
+----
 
-The detailed codes are in the "src" document.
+### 第1章 基础
+[1.1 基础编程模型](https://github.com/jimmysuncpt/Algorithms/tree/master/src/com/jimmysun/algorithms/chapter1_1)
+[1.2 数据抽象](https://github.com/jimmysuncpt/Algorithms/tree/master/src/com/jimmysun/algorithms/chapter1_2)
