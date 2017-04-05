@@ -1,7 +1,9 @@
 算法（第4版）
 ==========
 
->这个项目包含《算法（第4版）》书中的源代码和本人对部分课后练习的解答。分享给大家来一起学习，希望大家可以帮助完善这个项目，非常感谢！
+>这个项目包含《算法（第4版）》书中的代码和本人对部分课后练习的解答。分享给大家来一起学习，希望大家可以帮助完善这个项目，非常感谢！另外遇到的问题可以参考：[http://blog.csdn.net/u013541140/article/details/53222770](http://blog.csdn.net/u013541140/article/details/53222770)
+
+>[官方代码下载](http://algs4.cs.princeton.edu/code/algs4.jar)&ensp;[官方测试数据下载](http://algs4.cs.princeton.edu/code/algs4-data.zip)
 
 目录
 ----
