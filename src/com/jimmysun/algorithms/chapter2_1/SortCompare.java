@@ -2,6 +2,7 @@ package com.jimmysun.algorithms.chapter2_1;
 
 import com.jimmysun.algorithms.chapter1_4.Stopwatch;
 import com.jimmysun.algorithms.chapter2_2.Merge;
+import com.jimmysun.algorithms.chapter2_3.Quick;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -22,7 +23,7 @@ public class SortCompare {
 			Merge.sort(a);
 		}
 		if (alg.equals("Quick")) {
-			// Quick.sort(a);
+			Quick.sort(a);
 		}
 		if (alg.equals("Heap")) {
 			// Heap.sort(a);
