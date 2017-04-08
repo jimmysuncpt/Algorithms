@@ -59,28 +59,26 @@ public class TST<Value> {
 
 	// Exercise 5.2.9
 	public String longestPrefixOf(String s) {
-		int length = search(root, s, 0, 0);
+		if (s.length() == 0)
+			return null;
+		int length = 0;
+		Node x = root;
+		int i = 0;
+		while (x != null && i < s.length()) {
+			char c = s.charAt(i);
+			if (c < x.c) {
+				x = x.left;
+			} else if (c > x.c) {
+				x = x.right;
+			} else {
+				i++;
+				if (x.val != null) {
+					length = i;
+				}
+				x = x.mid;
+			}
+		}
 		return s.substring(0, length);
-	}
-
-	private int search(Node x, String s, int d, int length) {
-		if (x == null) {
-			return length;
-		}
-		if (x.val != null) {
-			length = d;
-		}
-		if (d == s.length()) {
-			return length;
-		}
-		char c = s.charAt(d);
-		if (c < x.c) {
-			return search(x.left, s, d, length);
-		} else if (c > x.c) {
-			return search(x.right, s, d, length);
-		} else {
-			return search(x.mid, s, d + 1, length);
-		}
 	}
 
 	public Iterable<String> keys() {
