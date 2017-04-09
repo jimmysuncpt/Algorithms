@@ -4,6 +4,7 @@ import com.jimmysun.algorithms.chapter1_4.Stopwatch;
 import com.jimmysun.algorithms.chapter2_2.Merge;
 import com.jimmysun.algorithms.chapter2_3.Quick;
 
+import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -26,7 +27,7 @@ public class SortCompare {
 			Quick.sort(a);
 		}
 		if (alg.equals("Heap")) {
-			// Heap.sort(a);
+			Heap.sort(a);
 		}
 		// Exercise 2.1.24
 		if (alg.equals("Ex24")) {
