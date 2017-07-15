@@ -3,8 +3,8 @@ package com.jimmysun.algorithms.chapter2_1;
 import com.jimmysun.algorithms.chapter1_4.Stopwatch;
 import com.jimmysun.algorithms.chapter2_2.Merge;
 import com.jimmysun.algorithms.chapter2_3.Quick;
+import com.jimmysun.algorithms.chapter2_4.Heap;
 
-import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
