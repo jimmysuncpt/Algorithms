@@ -11,8 +11,8 @@ public class ErdosRenyi {
 			q = StdRandom.uniform(N);
 			if (!uf.connected(p, q)) {
 				uf.union(p, q);
+				count++;
 			}
-			count++;
 		}
 		return count;
 	}
