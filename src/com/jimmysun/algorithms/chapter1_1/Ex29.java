@@ -4,42 +4,37 @@ import java.util.Arrays;
 
 public class Ex29 {
 	public static int rank(int key, int[] a) {
-		int count = 0;
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] < key) {
-				count++;
-			} else {
-				break;
+		int low=0;
+		int high=a.length-1;
+		while(low<=high){
+			int mid=low+(high-low)/2;
+			if(a[mid]==key){
+				while(mid>=0&&a[mid]==key){
+					mid--;
+				}
+				return ++mid;
+			}else if(a[mid]<key){
+				low=mid+1;
+			}else if(a[mid]>key){
+				high=mid-1;
 			}
 		}
-		return count;
+		return -1;
 	}
 
 	public static int count(int key, int[] a) {
-		int count = 0;
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] == key) {
-				count++;
-			} else if (a[i] > key) {
-				break;
-			}
+		int num=1;
+		int pos=rank(key,a);
+		while(a[pos]==a[++pos]){
+			num++;
 		}
-		return count;
+		return num;
 	}
 
 	public static void main(String[] args) {
-		int[] whitelist = { 7, 1, 5, 1, 9, 5, 7, 7, 5 };
-		Arrays.sort(whitelist);
-		int key = 7;
-		int i = rank(key, whitelist), j = count(key, whitelist);
-		System.out.println("The count less than key: " + i);
-		System.out.println("The count equals key: " + j);
-		if (j > 0) {
-			System.out.print("The keys:");
-			for (int k = i; k <= i + j - 1; k++) {
-				System.out.print(" " + whitelist[k]);
-			}
-			System.out.println();
-		}
+		int[] a=new int[]{84,48,68,10,18,98,12,23,54,57,33,16,77,11,29,11,29,77,77};
+		Arrays.sort(a);
+		System.out.println(rank(29,a));
+		System.out.println(count(48,a));
 	}
 }
