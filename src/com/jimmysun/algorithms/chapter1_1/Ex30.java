@@ -4,16 +4,13 @@ import edu.princeton.cs.algs4.StdIn;
 
 public class Ex30 {
 	public static int euclid(int p, int q) {
-		if (p == 0 || q == 0) {
-			return 1;
-		}
 		if (p < q) {
 			int t = p;
 			p = q;
 			q = t;
 		}
-		if (p % q == 0) {
-			return q;
+		if (q == 0) {
+			return p;
 		} else {
 			return euclid(q, p % q);
 		}
