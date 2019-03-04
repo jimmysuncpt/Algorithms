@@ -1,8 +1,8 @@
 package com.jimmysun.algorithms.chapter1_1;
 
 public class Ex09 {    
-    public static String toBinaryString(int N) {
-        if (N == 0) {
+    public static String toBinaryString(int value) {
+        if (value == 0) {
             return "0";
         }
         int bufLen = 32;
@@ -10,7 +10,7 @@ public class Ex09 {
         char[] result = new char[bufLen];
         do {
             // 使用 & 符合相对除 2 提升一定性能
-            result[--index] = '0' + (value & 1);
+            result[--index] = (char)('0' + (value & 1));
             value = value >>> 1;
         } while (value != 0);
         return new String(result, index, bufLen - index);
