@@ -38,30 +38,30 @@ public class Rational {
 	}
 
 	public Rational plus(Rational b) {
-		assert isTimesOverflow(numerator, b.denominator) : "Times overflow";
-		assert isTimesOverflow(b.numerator, denominator) : "Times overflow";
-		assert isPlusOverflow(numerator * b.denominator, b.numerator * denominator) : "Plus overflow";
-		assert isTimesOverflow(denominator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(numerator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(b.numerator, denominator) : "Times overflow";
+		assert !isPlusOverflow(numerator * b.denominator, b.numerator * denominator) : "Plus overflow";
+		assert !isTimesOverflow(denominator, b.denominator) : "Times overflow";
 		return new Rational(numerator * b.denominator + b.numerator * denominator, denominator * b.denominator);
 	}
 
 	public Rational minus(Rational b) {
-		assert isTimesOverflow(numerator, b.denominator) : "Times overflow";
-		assert isTimesOverflow(b.numerator, denominator) : "Times overflow";
-		assert isPlusOverflow(numerator * b.denominator, -b.numerator * denominator) : "Plus overflow";
-		assert isTimesOverflow(denominator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(numerator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(b.numerator, denominator) : "Times overflow";
+		assert !isPlusOverflow(numerator * b.denominator, -b.numerator * denominator) : "Plus overflow";
+		assert !isTimesOverflow(denominator, b.denominator) : "Times overflow";
 		return new Rational(numerator * b.denominator - b.numerator * denominator, denominator * b.denominator);
 	}
 
 	public Rational times(Rational b) {
-		assert isTimesOverflow(numerator, b.numerator) : "Times overflow";
-		assert isTimesOverflow(denominator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(numerator, b.numerator) : "Times overflow";
+		assert !isTimesOverflow(denominator, b.denominator) : "Times overflow";
 		return new Rational(numerator * b.numerator, denominator * b.denominator);
 	}
 
 	public Rational divides(Rational b) {
-		assert isTimesOverflow(numerator, b.denominator) : "Times overflow";
-		assert isTimesOverflow(denominator, b.numerator) : "Times overflow";
+		assert !isTimesOverflow(numerator, b.denominator) : "Times overflow";
+		assert !isTimesOverflow(denominator, b.numerator) : "Times overflow";
 		return new Rational(numerator * b.denominator, denominator * b.numerator);
 	}
 
@@ -96,7 +96,7 @@ public class Rational {
 	}
 
 	private boolean isPlusOverflow(int a, int b) {
-		return a >= 0 ? b < Integer.MAX_VALUE - a : b > Integer.MIN_VALUE - a;
+		return a >= 0 ? b > Integer.MAX_VALUE - a : b < Integer.MIN_VALUE - a;
 	}
 
 	private boolean isTimesOverflow(int a, int b) {
