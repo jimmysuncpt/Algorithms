@@ -21,10 +21,10 @@ public class ResizingArrayQueueOfStrings {
 	}
 
 	public void enqueue(String item) {
+		a[N++] = item;
 		if (N == a.length) {
 			resize(2 * a.length);
 		}
-		a[N++] = item;
 	}
 
 	public String dequeue() {
