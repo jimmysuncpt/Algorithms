@@ -1,13 +1,14 @@
 This module test by 2 techniques, which are Control Flow Graph with MCC Coverage and Data Flow Graph with All DU-Paths Coverage
 
 * Control Flow Graph with MCC
-![](/home/tj/kiemthupic/281239697_746164740076576_7353597018140447956_n.png)
+![](/image/CFG/1.png)
 Test cases:
-![](/home/tj/Downloads/p2.png)
-![](/home/tj/Downloads/03.png)
-![](/home/tj/Downloads/04.png)
+![](/image/CFG/p2.png)
+![](/image/CFG//03.png)
+![](/image/CFG//04.png)
 * Data Flow Graph with All DU-Paths Coverage
 Graph:
-![](/home/tj/Downloads/06.png)
-![](/home/tj/Downloads/05.png)
-![](/home/tj/Downloads/07.png)
+![](/image/DFG/06.png)
+![](/image/DFG/05.png)
+Testcase:
+![](/image/DFG/07.png)
