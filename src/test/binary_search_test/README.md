@@ -1,7 +1,7 @@
 This module test by 2 techniques, which are Control Flow Graph with MCC Coverage and Data Flow Graph with All DU-Paths Coverage
 
 * Control Flow Graph with MCC
-![](mage/1.png)
+![](image/CFG/1.png)
 Test cases:
 ![](image/CFG/p2.png)
 ![](image/CFG//03.png)
