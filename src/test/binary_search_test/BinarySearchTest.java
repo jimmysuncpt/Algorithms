@@ -1,6 +1,6 @@
-package binary_search_test;
+package test.binary_search_test;
 
-import auto_testcase_generation.testdatagen.templateType.BinarySearch;
+import edu.princeton.cs.algs4.BinarySearch;
 import org.junit.Assert;
 import org.junit.Test;
 
