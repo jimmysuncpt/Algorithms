@@ -10,7 +10,7 @@ public class Ex06 {
 			StdOut.println(f);
 			// 往前走一步
 			f = f + g;
-			// g记录f的上一次旧值
+			// g记录f的上一次旧值1
 			g = f - g;
 		}
 	}
