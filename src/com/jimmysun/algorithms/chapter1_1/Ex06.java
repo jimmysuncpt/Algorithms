@@ -8,7 +8,9 @@ public class Ex06 {
 		int g = 1;
 		for (int i = 0; i <= 15; i++) {
 			StdOut.println(f);
+			// 往前走一步
 			f = f + g;
+			// g记录f的上一次旧值1
 			g = f - g;
 		}
 	}
